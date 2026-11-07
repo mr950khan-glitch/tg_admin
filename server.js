@@ -131,10 +131,12 @@ async function handleUpdate(update) {
     await telegram("sendMessage", {
       chat_id: chatId,
       text:
-        "স্বাগতম! ❤️\n\n" +
-        "আপনাকে কি ভাবে সাহায্য করতে পারি" +
-        "অনুগ্রহ করে আপনার ইউজার id দিন । " +
-        "অনুগ্রহ করে কিছু সময় অপেক্ষা করুন"
+      "99xo স্বাগতম! ❤️\n\n" +
+       "আপনাকে কি ভাবে " +
+        "সাহায্য করতে পারি?  " +
+        "জয়েন করুন..https://t.me/vip99xo"+
+" রেজিষ্ট্রেশন লিংক--https://www.99xo.pro/?dl=5sjysv "
+
     });
   } else {
     await telegram("sendMessage", {
