@@ -235,7 +235,7 @@ async function handleUpdate(update) {
     if (!text || text.startsWith("/")) {
       await sendUser(
         chatId,
-        "অনুগ্রহ করে আপনার সঠিক ইউজার নেম অথবা ID দিন।"
+        "---।"
       );
       return;
     }
