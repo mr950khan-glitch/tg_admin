@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loginBox" class="login-box">
+  <h2>Admin Login</h2>
+  <p>আপনার Admin Key লিখুন</p>
+  <input id="adminKey" type="password" placeholder="Admin Key">
+  <button id="loginBtn">Login</button>
+  <p id="loginError"></p>
+</div>
+
+<div id="dashboard" class="dashboard" hidden>
+
+  <header>
+    <div>
+      <h2>Telegram Support</h2>
+      <small>Personal Chat Admin Panel</small>
+    </div>
+    <button id="logoutBtn" class="logout">Logout</button>
+  </header>
+
+  <main>
+    <section class="users">
+      <h3>All Users</h3>
+      <div id="userList"></div>
+    </section>
+
+    <section class="chat">
+      <div class="chat-title">
+        <h3 id="selectedName">Select a User</h3>
+        <button id="banBtn" hidden>Ban</button>
+      </div>
+
+      <div id="messages" class="messages">
+        <p class="empty">কোনো ইউজার নির্বাচন করা হয়নি।</p>
+      </div>
+
+      <form id="replyForm" class="reply-form">
+        <input id="replyInput" placeholder="Write a reply..." maxlength="4000" disabled>
+        <button id="sendBtn" disabled>Send</button>
+      </form>
+    </section>
+  </main>
+
+  <section class="broadcast">
+    <h3>Group / Channel Broadcast</h3>
+    <input id="target" placeholder="@channelusername অথবা Group Chat ID">
+    <textarea id="broadcastMessage" placeholder="আপনার মেসেজ লিখুন"></textarea>
+    <button id="broadcastBtn">Send Broadcast</button>
+    <p id="broadcastStatus"></p>
+  </section>
+
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
