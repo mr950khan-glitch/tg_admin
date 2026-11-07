@@ -134,6 +134,7 @@ async function handleUpdate(update) {
       "99xo স্বাগতম! ❤️\n\n" +
        "আপনাকে কি ভাবে " +
         "সাহায্য করতে পারি?  " +
+        "_____"+
         "জয়েন করুন..https://t.me/vip99xo"+
 " রেজিষ্ট্রেশন লিংক--https://www.99xo.pro/?dl=5sjysv "
 
