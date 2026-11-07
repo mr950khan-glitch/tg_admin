@@ -127,26 +127,59 @@ async function handleUpdate(update) {
 
   saveMessage(chatId, "user", text);
 
-  if (msg.text === "/start") {
-    await telegram("sendMessage", {
-      chat_id: chatId,
-      text:
-      "99xo স্বাগতম! ❤️\n\n" +
-       "আপনাকে কি ভাবে " +
-        "সাহায্য করতে পারি?  " +
-        "_____"+
-        "জয়েন করুন..https://t.me/vip99xo"+
-" রেজিষ্ট্রেশন লিংক--https://www.99xo.pro/?dl=5sjysv "
+// এই লাইনটি message handler-এর বাইরে রাখবেন
+const userSteps = new Map();
 
-    });
-  } else {
-    await telegram("sendMessage", {
-      chat_id: chatId,
-      text: "অনুগ্রহ করে"+
-        "অপেক্ষা করুন"
-    });
-  }
+// Message handler-এর ভিতরে
+const chatId = msg.chat.id;
+const text = (msg.text || "").trim();
+
+if (text === "/start") {
+
+  userSteps.set(chatId, 1);
+
+  await telegram("sendMessage", {
+    chat_id: chatId,
+    text:
+      "99xo স্বাগতম! ❤️\n\n" +
+      "আপনাকে কীভাবে সাহায্য করতে পারি?\n\n" +
+      "_____ \n" +
+      "জয়েন করুন..\nhttps://t.me/vip99xo\n\n" +
+      "রেজিষ্ট্রেশন লিংক:\n" +
+      "https://www.99xo.pro/?dl=5sjysv"
+  });
+
+} else if (userSteps.get(chatId) === 1) {
+
+  userSteps.set(chatId, 2);
+
+  await telegram("sendMessage", {
+    chat_id: chatId,
+    text:
+      "অনুগ্রহ করে আপনার ইউজার নেম অথবা ID দিন।"
+  });
+
+} else if (userSteps.get(chatId) === 2) {
+
+  userSteps.set(chatId, 3);
+
+  await telegram("sendMessage", {
+    chat_id: chatId,
+    text:
+      "অনুগ্রহ করে অপেক্ষা করুন।\n\n" +
+      "একজন এজেন্ট আপনার সমস্যা সমাধান করবে। ❤️"
+  });
+
+} else {
+
+  await telegram("sendMessage", {
+    chat_id: chatId,
+    text:
+      "আপনার মেসেজটি আমরা পেয়েছি। অনুগ্রহ করে অপেক্ষা করুন।"
+  });
+
 }
+
 
 // Admin security
 function adminAuth(req, res, next) {
