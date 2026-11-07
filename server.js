@@ -142,9 +142,8 @@ async function handleUpdate(update) {
   } else {
     await telegram("sendMessage", {
       chat_id: chatId,
-      text: "অনুগ্রহ করে কিছু সময় অপেক্ষা করুন।"+
-        "আপনার ইউজার ID বা গেমিং id দিন "+
-        "আপনার সমস্যা বিস্তারিত ভাবে বলুন "
+      text: "অনুগ্রহ করে"+
+        "অপেক্ষা করুন"
     });
   }
 }
